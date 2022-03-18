@@ -16,9 +16,10 @@
   <body>
     <ul id="barcode-list"></ul>
     <script>
-      window.onload = () => {
-        detect();
-      };
+       document.addEventListener("DOMContentLoaded", () => {
+      alert("This feature is available only in secure contexts (HTTPS)");
+      detect();
+    });
 
       async function detect() {
         const barcodeDetector = new BarcodeDetector();
