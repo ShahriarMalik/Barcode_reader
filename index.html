@@ -45,7 +45,11 @@
     });
 
     async function detect() {
-      const barcodeDetector = new BarcodeDetector();
+            // check compatibility
+            if (!('BarcodeDetector' in window)) {
+                alert('Barcode Detector is not supported by this browser. Please use Google Chrome on Android');
+                return false;
+            } else {     const barcodeDetector = new BarcodeDetector();
       const list = document.getElementById("barcode-list");
       const videoDiv = document.getElementById("videoDiv");
       let itemsFound = [];
@@ -82,7 +86,8 @@
       (function renderLoop() {
         requestAnimationFrame(renderLoop);
         render();
-      })();
+      })();}
+  
     }
   </script>
 
